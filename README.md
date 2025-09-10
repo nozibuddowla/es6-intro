@@ -107,3 +107,35 @@ arr = [4, 5]; // ❌ Error
 
 ---
 
+
+# 2. What are arrow functions, and how are they different from normal functions?
+
+Arrow functions in JavaScript are a concise way to write functions with a shorter syntax compared to normal functions. Here are the key differences:
+
+1. **`Shorter Syntax`**:
+Arrow functions use a compact syntax without the function keyword. For example:
+
+  ```js
+const add = (a, b) => a + b;
+  ```
+
+instead of
+
+```js
+function add(a, b) {
+  return a + b;
+}
+```
+
+2. **`No Own `this` `**:
+Arrow functions do not have their own `this` context. Instead, they inherit `this` from the surrounding (lexical) scope. This makes them useful for preserving the context inside callbacks.
+
+3. **`No `arguments` Object`**:
+Arrow functions do not have their own `arguments` object. If you need to access the arguments, you must use rest parameters (`...args`) or rely on the outer scope's arguments.
+
+4. **`Not Hoisted`**:
+Unlike normal function declarations, arrow functions assigned to variables are not hoisted. You cannot call them before their definition.
+
+5. **`Cannot be Used as Constructors`**:
+Arrow functions cannot be used with the `new` keyword and do not have a `prototype` property, so they cannot serve as constructors.
+
