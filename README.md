@@ -184,4 +184,65 @@ Template literals use backticks (`) instead of single or double quotes and suppo
    // Sugar is sweet,
    // And so are you.
    ```
-   
+
+
+# 4. What are the default parameters in functions?
+
+In JavaScript, **default parameters** let you assign a value to a function parameter if no argument is passed, or if the argument is explicitly `undefined`.
+
+### Example:
+
+```js
+function greet(name = "Guest") {
+    console.log("Hello, " + name);
+}
+
+greet("Nozib");   // 👉 "Hello, Nozib"
+greet();          // 👉 "Hello, Guest" (fallback value used)
+greet(undefined); // 👉 "Hello, Guest" (still uses default)
+```
+
+---
+
+## ✅ How They Work (Fallback Values)
+
+1. If you **don’t pass an argument** → JS uses the default.
+2. If you pass `undefined` → JS also uses the default.
+3. If you pass `null` or any other value → default is **not used**.
+
+### Example:
+
+```js
+function add(x = 1, y = 2) {
+    return x + y;
+}
+
+console.log(add());          // 3 (uses defaults 1 + 2)
+console.log(add(5));         // 7 (x = 5, y falls back to 2)
+console.log(add(0, 0));      // 0 (defaults not used, since args exist)
+console.log(add(undefined, 10)); // 11 (x defaults to 1, y = 10)
+console.log(add(null, 10));  // 10 (null is a real value, not undefined)
+```
+
+---
+
+## 🎯 Why It’s Useful
+
+Before ES6, devs used manual fallbacks like:
+
+```js
+function add(x, y) {
+    x = x || 1;
+    y = y || 2;
+    return x + y;
+}
+```
+
+But this caused issues because `0` or `false` would incorrectly trigger the fallback.
+
+Now with ES6 default parameters, it’s **cleaner and safer**.
+
+---
+
+👉 So, **default parameters provide fallback values** when arguments are **not passed** or are explicitly `undefined`, ensuring your function always has something to work with.
+
