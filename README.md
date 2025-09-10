@@ -360,3 +360,62 @@ console.log(price); // 1000 (default used because price wasn’t in object)
 
 ---
 
+
+# 6. What is the spread operator (...) and rest operator?
+The **spread operator** (`...`) and the **rest operator** (`...`) use the same syntax but serve opposite purposes in JavaScript, depending on the context.
+
+---
+
+### Spread Operator (`...`)
+
+- **Purpose:** Expands (or "spreads") elements of an iterable (like an array) or properties of an object into individual elements or key-value pairs.
+- **Usage with Arrays:**  
+  It expands an array into individual elements.  
+  ```js
+  const arr = [1, 2, 3];
+  const newArr = [...arr, 4, 5];  // [1, 2, 3, 4, 5]
+  ```
+- **Usage with Objects:**  
+  It expands an object’s properties into a new object.  
+  ```js
+  const obj = { a: 1, b: 2 };
+  const newObj = { ...obj, c: 3 };  // { a: 1, b: 2, c: 3 }
+  ```
+
+---
+
+### Rest Operator (`...`)
+
+- **Purpose:** Gathers multiple elements or properties into a single array or object.
+- **Usage with Arrays:**  
+  It collects the remaining elements into an array.  
+  ```js
+  const [first, ...rest] = [1, 2, 3, 4];
+  console.log(first); // 1
+  console.log(rest);  // [2, 3, 4]
+  ```
+- **Usage with Objects:**  
+  It collects the remaining properties into a new object.  
+  ```js
+  const { a, ...rest } = { a: 1, b: 2, c: 3 };
+  console.log(a);    // 1
+  console.log(rest); // { b: 2, c: 3 }
+  ```
+
+---
+
+### Key Difference Between Spread and Rest
+
+| Feature          | Spread Operator (`...`)                  | Rest Operator (`...`)                    |
+|------------------|-----------------------------------------|-----------------------------------------|
+| **Function**     | Expands elements/properties              | Gathers remaining elements/properties   |
+| **Context**      | Used in function calls, array/object literals | Used in destructuring assignments and function parameters |
+| **Example**      | `const arr2 = [...arr1, 4]`              | `const [a, ...rest] = arr`               |
+
+---
+
+### Summary
+
+- **`Spread`** expands arrays or objects into individual elements or properties.
+- **`Rest`** collects multiple elements or properties into a single array or object.
+- Both use the same `...` syntax but differ by context: **`spread`** in expressions, **`rest`** in destructuring or function parameters.
