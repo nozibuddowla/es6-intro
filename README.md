@@ -246,3 +246,117 @@ Now with ES6 default parameters, it’s **cleaner and safer**.
 
 👉 So, **default parameters provide fallback values** when arguments are **not passed** or are explicitly `undefined`, ensuring your function always has something to work with.
 
+
+# 5. What is destructuring in JavaScript?
+
+**Destructuring** in JavaScript is a way to **unpack values** from arrays or properties from objects into separate variables in a clean and concise way.
+
+Instead of accessing values one by one, you can "destructure" them in a single line.
+
+---
+
+## ✅ Array Destructuring
+
+### Example 1
+
+```js
+const colors = ["red", "green", "blue"];
+
+const [first, second, third] = colors;
+
+console.log(first);  // "red"
+console.log(second); // "green"
+console.log(third);  // "blue"
+```
+
+---
+
+### Example 2 – Skipping Values
+
+```js
+const numbers = [10, 20, 30, 40];
+const [a, , c] = numbers;
+
+console.log(a); // 10
+console.log(c); // 30
+```
+
+---
+
+### Example 3 – Using Rest Operator
+
+```js
+const fruits = ["apple", "banana", "mango", "orange"];
+
+const [firstFruit, ...others] = fruits;
+
+console.log(firstFruit); // "apple"
+console.log(others);     // ["banana", "mango", "orange"]
+```
+
+---
+
+### Example 4 – Swapping Variables
+
+Before ES6:
+
+```js
+let x = 1, y = 2;
+let temp = x;
+x = y;
+y = temp;
+```
+
+With destructuring:
+
+```js
+let x = 1, y = 2;
+[x, y] = [y, x];
+
+console.log(x); // 2
+console.log(y); // 1
+```
+
+---
+
+## ✅ Object Destructuring
+
+### Example 1
+
+```js
+const user = { username: "john_doe", email: "john@example.com" };
+
+const { username, email } = user;
+
+console.log(username); // "john_doe"
+console.log(email);    // "john@example.com"
+```
+
+---
+
+### Example 2 – Renaming Variables
+
+```js
+const person = { name: "Alice", age: 25 };
+
+const { name: fullName, age } = person;
+
+console.log(fullName); // "Alice"
+console.log(age);      // 25
+```
+
+---
+
+### Example 3 – Default Values
+
+```js
+const product = { title: "Laptop" };
+
+const { title, price = 1000 } = product;
+
+console.log(title); // "Laptop"
+console.log(price); // 1000 (default used because price wasn’t in object)
+```
+
+---
+
