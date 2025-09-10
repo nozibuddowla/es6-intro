@@ -139,3 +139,49 @@ Unlike normal function declarations, arrow functions assigned to variables are n
 5. **`Cannot be Used as Constructors`**:
 Arrow functions cannot be used with the `new` keyword and do not have a `prototype` property, so they cannot serve as constructors.
 
+
+# 3. What are template literals?
+Template literals use backticks (`) instead of single or double quotes and support string interpolation and multi-line strings.
+
+1. **`Backticks`**: (`Template literals are enclosed in backticks`) rather than single quotes (') or double quotes ("). This syntax distinguishes them from regular strings and enables their special features.
+
+   Example:
+   ```javascript
+   let greeting = `Hello, world!`;
+   console.log(greeting); // Output: Hello, world!
+   ```
+
+2. **`String Interpolation (${})`**: Template literals allow you to embed expressions inside strings using the `${expression}` syntax. The expression inside `${}` is evaluated and inserted into the string, making it easy to create dynamic strings without concatenation.
+
+   Example:
+   ```javascript
+   let name = "Alice";
+   let age = 25;
+   let message = `My name is ${name} and I am ${age} years old.`;
+   console.log(message); // Output: My name is Alice and I am 25 years old.
+   ```
+
+   You can also use complex expressions inside `${}`:
+
+   ```javascript
+   let a = 5, b = 10;
+   let sum = `The sum of ${a} and ${b} is ${a + b}.`;
+   console.log(sum); // Output: The sum of 5 and 10 is 15.
+   ```
+
+3. **`Multi-line Strings`**: Template literals allow strings to span multiple lines without needing concatenation or escape characters like `\n`. Everything between the backticks, including line breaks, is preserved in the output.
+
+   Example:
+   ```javascript
+   let poem = `Roses are red,
+   Violets are blue,
+   Sugar is sweet,
+   And so are you.`;
+   console.log(poem);
+   // Output:
+   // Roses are red,
+   // Violets are blue,
+   // Sugar is sweet,
+   // And so are you.
+   ```
+   
